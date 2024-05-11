@@ -1,4 +1,3 @@
-import { LoggedUser } from "@/services/authService";
 import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore('auth',{
@@ -6,7 +5,7 @@ export const useAuthStore = defineStore('auth',{
     return{
       accessToken: localStorage.getItem('access_token') || '',
       signedIn: false,
-      loggedUser: {id: 0, tipos: [''], username: ''} as LoggedUser
+      loggedUser: {id: 1, tipos: [], username: "" },
     }
   },
   actions: {
@@ -16,7 +15,7 @@ export const useAuthStore = defineStore('auth',{
     setSignedIn(value: boolean){
       this.signedIn = value
     },
-    setLoggedUser(loggedUser: LoggedUser){
+    setLoggedUser(loggedUser: any){
       this.loggedUser = loggedUser
     }
   },

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Toaster } from "@steveyuowo/vue-hot-toast";
 import { Eye, EyeOff, LoaderCircle } from "lucide-vue-next";
 import { ref } from "vue";
+import blueLogo from '../../assets/images/blueLogo.svg';
 import ErrorMessage from '../../components/ErrorMessage.vue';
 import { localStorageKeys } from '../../config/localStorageKeys';
 import { useLoginController } from './useLoginController';
@@ -22,9 +23,6 @@ const isPasswordVisible = ref(false);
 const isLoading = ref(false);
 const rememberMe = ref(savedCredentials?.rememberMe || false);
 
-console.log("usercredentials", userCredentials)
-console.log("savedcredentials", savedCredentials)
-console.log("rememberMe", rememberMe)
 
 const form = ref({
   username:  savedCredentials?.username || "",
@@ -63,7 +61,7 @@ async function handleLogin() {
   <Toaster />
   <div class="w-full h-screen flex items-center justify-center">
     <form @submit.prevent="handleLogin" class="max-w-80 w-full h-full flex flex-col gap-3 justify-center">
-      <h1 class="text-slate-700 font-bold self-center mb-10">Agenda Pessoal</h1>
+      <img :src="blueLogo" class="h-8 text-indigo-500 mb-5">
 
       <Input placeholder="Usuário" v-model="form.username"/>
       <ErrorMessage :errors="errors?.username?._errors"/>

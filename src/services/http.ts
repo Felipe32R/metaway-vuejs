@@ -13,9 +13,9 @@ const api = axios.create({
 api.interceptors.request.use(
   config => {
     const token = authStore.getToken; 
-    console.log("REQUEST", token, authStore.isSignedIn)
+
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`; // Adiciona o token ao cabeçalho da requisição
+      config.headers.Authorization = `Bearer ${token}`; 
     }
     return config;
   },

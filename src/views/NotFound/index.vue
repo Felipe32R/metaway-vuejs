@@ -1,5 +1,7 @@
 <template>
-  <h1>Página não encontrada</h1>
+  <div class="flex h-screen w-full items-center justify-center" >
+    <h1 class="font-medium text-xl" >Página não encontrada</h1>
+  </div>
 </template>
 
 <script>

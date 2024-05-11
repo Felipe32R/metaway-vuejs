@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { watchEffect } from 'vue';
-import { useHomeController } from './useHomeController';
-const {listContacts } = useHomeController()
+
+import HomeContactsTable from "./components/HomeContactsTable.vue";
 
 
-watchEffect(() => listContacts())
+
+
 
 </script>
 
 <template>
-  <h1>home</h1>
+    <div class=" pb-24">
+        <HomeContactsTable  />
 
+    </div>
 </template>
-

@@ -11,6 +11,6 @@ const layout = computed(
 
 <template>
   <component :is="layout">
-      <router-view />
+      <router-view  />
   </component>
 </template>

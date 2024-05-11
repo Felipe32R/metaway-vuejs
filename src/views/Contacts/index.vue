@@ -1,12 +1,19 @@
-<template>
-  <div>
-    <nav>
-      <!-- Seu código de navegação aqui -->
-    </nav>
- <h1>contacts</h1>
-  </div>
-</template>
+<script setup lang="ts">
 
-<script>
+import { Toaster } from "@steveyuowo/vue-hot-toast";
+import ContactsTable from "./components/ContactsTable.vue";
+
+
+
+
+
+
 
 </script>
+
+<template>
+  <Toaster />
+   <div class=" pb-24"> 
+     <ContactsTable />
+</div>
+</template>

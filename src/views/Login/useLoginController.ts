@@ -31,6 +31,7 @@ export function useLoginController() {
       try {
         const { accessToken, id, tipos, username } = await login(data);
         const user = { id, tipos, username};
+
         localStorage.setItem(localStorageKeys.ACCESS_TOKEN, accessToken);
         authStore.setToken(accessToken);
         authStore.setLoggedUser(user)
