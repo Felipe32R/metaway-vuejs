@@ -9,13 +9,7 @@ import logo from '../assets/images/logo.svg';
 const router = useRouter();
 const authStore = useAuthStore();
 const loggedUser = authStore.loggedUser;
-const routes = [
-  { name: "Home", redirect: "/" },
-  { name: "Meu cadastro", redirect: `/editUser/${loggedUser.id}` },
-  { name: "Usuários", redirect: "/users" },
-  { name: "Pessoas", redirect: "/persons" },
-  { name: "Contatos", redirect: "/contacts" },
-];
+
 
 const isOpen = ref(false);
 const isMenuOpen = ref(false);
@@ -48,13 +42,37 @@ function handleLogout() {
 
     <ul v-if="isMenuOpen" class=" flex items-center justify-center gap-3 flex-col w-full  transition-all bg-indigo-500 text-white">
 
-      <li v-for="route in routes" :key="route.name" class="w-[200px] rounded-md bg-indigo-400 flex justify-center" >
+      <li class="w-[200px] rounded-md bg-indigo-400 flex justify-center" >
         <router-link
-          class="py-2  px-5 transition-all ease-in rounded-md border-none"
-          :to="route.redirect"
-          >{{ route.name }}</router-link
-        >
+          :class="'py-2  px-5 transition-all ease-in rounded-md border-none'"
+          :to="'/'"
+          >Home</router-link>
       </li>
+      <li v-if="loggedUser.tipos === 'ROLE_ADMIN'" class="w-[200px] rounded-md bg-indigo-400 flex justify-center" >
+        <router-link 
+          :class="'py-2  px-5 transition-all ease-in rounded-md border-none'"
+          :to="`/editUser/${loggedUser.id}`"
+          >Meu cadastro</router-link>
+      </li>
+      <li class="w-[200px] rounded-md bg-indigo-400 flex justify-center">
+        <router-link
+          :class="'py-2  px-5 transition-all ease-in rounded-md border-none'"
+          :to="'/users'"
+          >Usuários</router-link>
+      </li>
+      <li class="w-[200px] rounded-md bg-indigo-400 flex justify-center">
+        <router-link
+          :class="'py-2  px-5 transition-all ease-in rounded-md border-none'"
+          :to="'/persons'"
+          >Pessoas</router-link>
+      </li>
+      <li class="w-[200px] rounded-md bg-indigo-400 flex justify-center">
+        <router-link
+          :class="'py-2  px-5 transition-all ease-in rounded-md border-none'"
+          :to="'/contacts'"
+          >Contatos</router-link>
+      </li>
+  
       <button @click="isOpen = true" title="Sair" class="py-2 w-[200px] rounded-md bg-red-500 flex justify-center my-4">
         Sair
       </button>

@@ -12,13 +12,6 @@ const authStore = useAuthStore();
 const loggedUser = authStore.loggedUser;
 
 
-const routes = [
-  { name: "Home", redirect: "/" },
-  { name: "Meu cadastro", redirect: `/editUser/${loggedUser.id}` },
-  { name: "Usuários", redirect: "/users" },
-  { name: "Pessoas", redirect: "/persons" },
-  { name: "Contatos", redirect: "/contacts" },
-];
 
 const isOpen = ref(false);
 const isActive = ref(false);
