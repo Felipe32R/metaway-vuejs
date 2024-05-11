@@ -4,7 +4,7 @@ import { useAuthStore } from '../stores/AuthStore';
 const authStore = useAuthStore();
 
 const api = axios.create({
-  baseURL: 'https://demometaway.vps-kinghost.net:8485/api',
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'Content-Type': 'application/json'
   }
