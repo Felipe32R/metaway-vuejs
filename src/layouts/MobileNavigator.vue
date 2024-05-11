@@ -22,7 +22,8 @@ const isMenuOpen = ref(false);
 
 function handleLogout() {
   localStorage.removeItem(localStorageKeys.ACCESS_TOKEN);
-  setTimeout(() => router.push("/login"), 500);
+  authStore.setToken(null)
+  router.push("/login")
 }
 
 
